@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>EventHub</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="login.html">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Upcoming Events</h1>
+            <p>Discover and connect with the latest webinars, seminars, and courses</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="portal-cards">
+            <div class="portal-card">
+                <div class="portal-card-header">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="portal-card-body">
+                    <h3>Student Portal</h3>
+                    <p>Access approved events specifically curated for students.</p>
+                    <a href="login.html" class="btn student-login-btn">Student Login</a>
+                </div>
+            </div>
+            
+            <div class="portal-card">
+                <div class="portal-card-header">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="portal-card-body">
+                    <h3>Client Portal</h3>
+                    <p>Submit your events for approval and track their status.</p>
+                    <a href="login.html" class="btn client-login-btn">Client Login</a>
+                </div>
+            </div>
+            
+            <div class="portal-card">
+                <div class="portal-card-header">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="portal-card-body">
+                    <h3>Admin Portal</h3>
+                    <p>Manage events and approve submissions.</p>
+                    <a href="login.html" class="btn admin-login-btn">Admin Login</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="events-header">
+            <h2>All Upcoming Events</h2>
+            <div class="filter">
+                <input type="text" id="searchInput" placeholder="Search events...">
+            </div>
+        </div>
+        
+        <div id="eventsList" class="events-list">
+            <!-- Events will be dynamically loaded here via JavaScript -->
+            <div class="no-events-message" id="noEventsMessage">
+                <i class="fas fa-calendar-times"></i>
+                <p>No upcoming events found</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Event Organizer</h2>
+            <p id="modalEventTitle"></p>
+            <p>Send a message to: <span id="modalContactEmail"></span></p>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 EventHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="check-auth.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Add role selection to login buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.student-login-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.setItem('selectedRole', 'student');
+                window.location.href = 'login.html';
+            });
+            
+            document.querySelector('.client-login-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.setItem('selectedRole', 'client');
+                window.location.href = 'login.html';
+            });
+            
+            document.querySelector('.admin-login-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.setItem('selectedRole', 'admin');
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+</html> 
