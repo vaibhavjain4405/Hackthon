@@ -1,0 +1,9 @@
+- index.html - Homepage with overview and navigation
+- login.html - Authentication page for all users
+- student.html - Student page for viewing approved events
+- client.html - Client page for submitting events
+- admin.html - Admin page for managing events
+- style.css - Shared styles for all pages
+- script.js - JavaScript logic for events management
+- auth.js - Authentication logic
+- check-auth.js - Authentication verification for protected pages
