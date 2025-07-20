@@ -1,0 +1,3 @@
+This website is a role-based event management system with three panels: Admin can approve or remove events,
+Client can submit events for admin approval, and Students can view, visit, and contact event organizers. 
+It ensures secure access and organized event handling for all user roles.
