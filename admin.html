@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EventHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>EventHub</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="admin.html" class="active">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero admin-hero">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p>Manage your events and connect with your audience</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="admin-panel">
+            <div class="admin-section">
+                <h2><i class="fas fa-plus-circle"></i> Add New Event</h2>
+                <form id="addEventForm" class="event-form">
+                    <div class="form-group">
+                        <label for="eventTitle">Event Title*</label>
+                        <input type="text" id="eventTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescription">Event Description*</label>
+                        <textarea id="eventDescription" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate">Event Date*</label>
+                        <input type="datetime-local" id="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Contact Email*</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Add Event</button>
+                    </div>
+                </form>
+                <div id="messageContainer" class="message"></div>
+            </div>
+
+            <div class="admin-section">
+                <h2><i class="fas fa-list"></i> Manage Events</h2>
+                <div class="manage-events">
+                    <div class="events-header">
+                        <h3>Current Events</h3>
+                        <div class="filter">
+                            <input type="text" id="adminSearchInput" placeholder="Search events...">
+                        </div>
+                    </div>
+                    <div id="adminEventsList" class="admin-events-list">
+                        <!-- Events will be dynamically loaded here -->
+                        <div class="no-events-message" id="adminNoEventsMessage">
+                            <i class="fas fa-calendar-times"></i>
+                            <p>No events found</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h2><i class="fas fa-clock"></i> Pending Approval</h2>
+                <div class="manage-events">
+                    <div class="events-header">
+                        <h3>Client Submissions</h3>
+                        <div class="filter">
+                            <input type="text" id="pendingSearchInput" placeholder="Search pending events...">
+                        </div>
+                    </div>
+                    <div id="pendingEventsList" class="admin-events-list">
+                        <!-- Pending events will be dynamically loaded here -->
+                        <div class="no-events-message" id="pendingNoEventsMessage">
+                            <i class="fas fa-check-circle"></i>
+                            <p>No pending submissions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 EventHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="check-auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
